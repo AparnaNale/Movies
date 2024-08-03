@@ -29,13 +29,13 @@
 // export default App;
 
 
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { AppBar, Toolbar, Typography, Button, Container } from "@mui/material";
 import MovieList from "./components/MovieList";
 import FavoriteList from "./components/FavoriteList";
 import Navbar from "./components/Navbar";
-import movieStore from "./stores/MovieStore";
+
 
 const App: React.FC = () => {
 
