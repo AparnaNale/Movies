@@ -1,32 +1,4 @@
-// import React, { useEffect } from 'react';
-// import { observer } from 'mobx-react-lite';
-// import movieStore from './stores/MovieStore';
-// import Navbar from './components/Navbar';
-// import MovieList from './components/MovieList';
-// import FavoriteList from './components/FavoriteList';
-// import { Container } from '@mui/material';
 
-// const App: React.FC = observer(() => {
-//   useEffect(() => {
-//     fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=582de5f4&s=${movieStore.search}`)
-//       .then(res => res.json())
-//       .then(data => {
-//         if (data.Search) {
-//           movieStore.setMovies(data.Search);
-//         }
-//       });
-//   }, [movieStore.search]);
-
-//   return (
-//     <Container>
-//       <Navbar />
-//       <MovieList />
-//       <FavoriteList />
-//     </Container>
-//   );
-// });
-
-// export default App;
 
 
 import React from "react";

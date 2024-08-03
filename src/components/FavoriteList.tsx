@@ -10,9 +10,6 @@ const FavoriteList: React.FC = observer(() => {
   return (
     <>
   
-      {/* <Typography variant="h4" gutterBottom>
-        Favorite Movies
-      </Typography> */}
       <Grid container spacing={3} >
         {
         fav.length > 0 
