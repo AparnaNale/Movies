@@ -17,7 +17,7 @@ const App: React.FC = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" style={{ flexGrow: 1 }}>
-            Movie App
+            Movies App
           </Typography>
           <Navbar />
           <Button color="inherit" component={Link} to="/">
