@@ -7,7 +7,7 @@ const Navbar: React.FC = observer(() => {
 
   async function loadMovies() {
     try {
-      await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=582de5f4&s=${movieStore.search}`)
+      await fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=582de5f4&s=${movieStore.search}`)
         .then(res => res.json())
         .then(data => {
           if (data.Search) {
