@@ -27,14 +27,14 @@ const Navbar: React.FC = observer(() => {
 
   return (
 
-    <form onSubmit={clickHandler} style={{ display: 'flex', flexGrow: 1, padding: 10 }}>
+    <form onSubmit={clickHandler} style={{ display: 'flex', padding: 10 }}>
       <Input
         value={movieStore.name}
         onChange={(e) => movieStore.setName(e.target.value)}
         placeholder="Search your favorite movie"
-        style={{ marginRight: '8px', flexGrow: 1, backgroundColor: "white", paddingLeft: "5px" }}
+        style={{ backgroundColor: "white", paddingLeft: "5px", marginRight: 8, width: "300px", borderRadius: '5px' }}
       />
-      <Button type="submit" variant="contained" color="success">
+      <Button type="submit" variant="outlined" color="inherit" size='small' sx={{ borderRadius: '5px' }}>
         Search
       </Button>
     </form>

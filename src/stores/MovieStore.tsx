@@ -3,7 +3,7 @@ import { makeAutoObservable } from "mobx";
 //each storing Movie objects that represent details like title, IMDb ID, poster, and year."
 
 interface Movie {
-  title: string;
+  Title: string;
   imdbID: string;
   Poster: string;
   Year: string;
