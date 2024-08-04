@@ -1,18 +1,23 @@
 import React, { useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import movieStore from '../stores/MovieStore';
-import {  TextField, Button } from '@mui/material';
+import { TextField, Button, Input } from '@mui/material';
 
 const Navbar: React.FC = observer(() => {
-  
+
   useEffect(() => {
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=582de5f4&s=${movieStore.search}`)
-      .then(res => res.json())
-      .then(data => {
-        if (data.Search) {
-          movieStore.setMovies(data.Search);
-        }
-      });
+    try {
+      fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=582de5f4&s=${movieStore.search}`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.Search) {
+            movieStore.setMovies(data.Search);
+          }
+        });
+    } catch (error) {
+      movieStore.setError("API error, Cant fetch movies list")
+    }
+
   }, [movieStore.search]);
 
   const clickHandler = (e: React.FormEvent) => {
@@ -21,20 +26,19 @@ const Navbar: React.FC = observer(() => {
   };
 
   return (
-    
-        <form onSubmit={clickHandler} style={{ display: 'flex', flexGrow: 1 ,padding:10}}>
-          <TextField
-            variant="filled"
-            value={movieStore.name}
-            onChange={(e) => movieStore.setName(e.target.value)}
-            placeholder="Search"
-            style={{ marginRight: '8px', flexGrow: 1 }}
-          />
-          <Button type="submit" variant="contained" color="primary">
-            Search
-          </Button>
-        </form>
-    
+
+    <form onSubmit={clickHandler} style={{ display: 'flex', flexGrow: 1, padding: 10 }}>
+      <Input
+        value={movieStore.name}
+        onChange={(e) => movieStore.setName(e.target.value)}
+        placeholder="Search your favorite movie"
+        style={{ marginRight: '8px', flexGrow: 1, backgroundColor: "white", paddingLeft: "5px" }}
+      />
+      <Button type="submit" variant="contained" color="success">
+        Search
+      </Button>
+    </form>
+
   );
 });
 

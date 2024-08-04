@@ -19,7 +19,7 @@ const App: React.FC = () => {
           <Typography variant="h6" style={{ flexGrow: 1 }}>
             Movie App
           </Typography>
-          <Navbar/>
+          <Navbar />
           <Button color="inherit" component={Link} to="/">
             Movies
           </Button>
@@ -27,13 +27,13 @@ const App: React.FC = () => {
             Favorites
           </Button>
         </Toolbar>
-       
+
       </AppBar>
 
-      <Container>
+      <Container sx={{ paddingY: 2 }} >
         <Routes>
-          <Route path="/" element={<MovieList/>} />
-          <Route path="/favorites" element={<FavoriteList/>} />
+          <Route path="/" element={<MovieList />} />
+          <Route path="/favorites" element={<FavoriteList />} />
         </Routes>
       </Container>
     </Router>
