@@ -5,9 +5,9 @@ import { TextField, Button, Input } from '@mui/material';
 
 const Navbar: React.FC = observer(() => {
 
-  useEffect(() => {
+  async function loadMovies() {
     try {
-      fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=582de5f4&s=${movieStore.search}`)
+      await fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=582de5f4&s=${movieStore.search}`)
         .then(res => res.json())
         .then(data => {
           if (data.Search) {
@@ -17,6 +17,10 @@ const Navbar: React.FC = observer(() => {
     } catch (error) {
       movieStore.setError("API error, Cant fetch movies list")
     }
+  }
+
+  useEffect(() => {
+    loadMovies()
 
   }, [movieStore.search]);
 
