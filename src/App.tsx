@@ -26,10 +26,8 @@ const App: React.FC = () => {
           <Button color="inherit" component={Link} to="/favorites">
             Favorites
           </Button>
-        </Toolbar>
-       
+        </Toolbar>       
       </AppBar>
-      
       <Container>
         <Routes>
           <Route path="/" element={<MovieList/>} />
