@@ -1,7 +1,5 @@
 import { makeAutoObservable } from "mobx";
 
-//each storing Movie objects that represent details like title, IMDb ID, poster, and year."
-
 interface Movie {
   Title: string;
   imdbID: string;
@@ -11,19 +9,19 @@ interface Movie {
 
 
 class MovieStore {
-  movies: Movie[] = [];   //array to store the list of movies.
-  fav: Movie[] = [];    //array to store the list of favorite movies.
-  search: string = 'Don';  //string to store the current search term. Default is 'Don'.
-  name: string = "";    ///string to store a name, presumably related to the user or the movie list.
+  movies: Movie[] = [];   
+  fav: Movie[] = [];   
+  search: string = 'Don'; 
+  name: string = "";   
   error: string | null
 
 
   constructor() {
-    makeAutoObservable(this)//This MobX function makes the class properties observable, MobX will track changes and automatically update other observers when changes occur.
+    makeAutoObservable(this)
     this.error = null
   }
 
-  //  setMovies, setFav, setSearch, setName: "These methods update respective properties (movies, fav, search, name) with new values. For example, setMovies updates the list of movies, while setSearch manages the current search term."
+  
 
   setMovies(movies: Movie[]) {
     this.movies = movies;
@@ -45,11 +43,10 @@ class MovieStore {
     this.fav = fav;
   }
 
-  //addFavorite and removeFavorite: "These methods handle adding and removing movies from the favorites list (fav). When adding a favorite, it removes the movie from the main movies list to prevent duplicates. Conversely, removing a favorite restores the movie to the main list."
 
   addFavorite(movie: Movie) {
     this.fav.push(movie)
-    // this.movies = this.movies.filter(m => m.imdbID !== movie.imdbID);
+
   }
 
   removeFavourite(movie: Movie) {

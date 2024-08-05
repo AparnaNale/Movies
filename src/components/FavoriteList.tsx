@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react-lite';
 import movieStore from '../stores/MovieStore';
 import MovieCard from './MovieCard';
-import { Grid, Paper, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 
 const FavoriteList: React.FC = observer(() => {
   const { fav } = movieStore;

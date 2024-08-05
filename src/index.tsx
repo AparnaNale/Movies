@@ -6,6 +6,8 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
-  <Box sx={{ backgroundColor: "grey.200", width: "100%" }}> <App /></Box>
+  <Box sx={{ backgroundColor: "grey.200", width: "100%" }}>
+    <App />
+  </Box>
 );
 

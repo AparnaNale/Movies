@@ -19,27 +19,43 @@ interface MovieCardProps {
 }
 const MovieCard: React.FC<MovieCardProps> = ({ movie, onClickHandler, buttonLabel }) => {
   return (
-    <>
-      <Card sx={{ maxWidth: 345, margin: 3, border: '1px solid orange' }}>
-        <CardMedia
-          component="img"
-          alt={movie.Title}
-          height="340"
-          image={movie.Poster}
-        />
-        <CardContent sx={{ backgroundColor: "grey.100" }}>
-          <Typography variant="h5" noWrap sx={{ maxWidth: "100%", justifyContent: 'space-between', alignItems: 'center', display: 'flex' }} fontWeight='bold'>
-            {movie.Title}
-            {movieStore.fav.some((m) => m.imdbID === movie.imdbID) ? <FavoriteIcon color='error' /> : <FavoriteBorderOutlinedIcon />}
-          </Typography>
-          <Typography variant="body2" color="text.secondary" >
-            Published in {movie.Year}
-          </Typography>
-          <Button variant="contained" color={movieStore.fav.some((m) => m.imdbID === movie.imdbID) ? "secondary" : "primary"} size='small' onClick={onClickHandler} >
-            {buttonLabel}
-          </Button>
-        </CardContent>
-      </Card></>
+    <Card sx={{ maxWidth: 345, margin: 3, border: '1px solid orange' }}>
+      <CardMedia
+        component="img"
+        alt={movie.Title}
+        height="340"
+        image={movie.Poster}
+      />
+      <CardContent sx={{ backgroundColor: "grey.100" }}>
+        <Typography
+          variant="h5"
+          noWrap sx={{ maxWidth: "100%", justifyContent: 'space-between', alignItems: 'center', display: 'flex', fontSize: "15px" }}
+          fontWeight='bold'
+          data-cy='movie-title'
+        >
+          {movie.Title}
+          {movieStore.fav.some((m) => m.imdbID === movie.imdbID)
+            ? <FavoriteIcon color='error' />
+            : <FavoriteBorderOutlinedIcon />}
+        </Typography>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          data-cy='movie-year'>
+          Published in {movie.Year}
+        </Typography>
+        <Button
+          variant="contained"
+          color={movieStore.fav.some((m) => m.imdbID === movie.imdbID)
+            ? "secondary" : "primary"}
+          size='small'
+          onClick={onClickHandler}
+          data-cy='add-to-fav'
+        >
+          {buttonLabel}
+        </Button>
+      </CardContent>
+    </Card>
   )
 }
 

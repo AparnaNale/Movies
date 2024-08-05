@@ -1,9 +1,6 @@
-
-
-
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import { AppBar, Toolbar, Typography, Button, Container, Box, Stack } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Container, Stack } from "@mui/material";
 import MovieList from "./components/MovieList";
 import FavoriteList from "./components/FavoriteList";
 import Navbar from "./components/Navbar";
@@ -21,10 +18,12 @@ const App: React.FC = () => {
           </Typography>
           <Navbar />
           <Stack spacing={1} direction={'row'}>
-            <Button color="inherit" variant="outlined" size="small" component={Link} to="/">
+            <Button color="inherit" variant="outlined" size="small" component={Link} to="/"
+              data-cy="movies">
               Movies
             </Button>
-            <Button color="inherit" variant="outlined" size="small" component={Link} to="/favorites">
+            <Button color="inherit" variant="outlined" size="small" component={Link} to="/favorites"
+              data-cy="fav">
               Favorites
             </Button>
           </Stack>
