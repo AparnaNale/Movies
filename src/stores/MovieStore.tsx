@@ -9,10 +9,10 @@ interface Movie {
 
 
 class MovieStore {
-  movies: Movie[] = [];   
-  fav: Movie[] = [];   
-  search: string = 'Don'; 
-  name: string = "";   
+  movies: Movie[] = [];
+  fav: Movie[] = [];
+  search: string = 'Don';
+  name: string = "";
   error: string | null
 
 
@@ -21,7 +21,7 @@ class MovieStore {
     this.error = null
   }
 
-  
+
 
   setMovies(movies: Movie[]) {
     this.movies = movies;
@@ -45,6 +45,7 @@ class MovieStore {
 
 
   addFavorite(movie: Movie) {
+
     this.fav.push(movie)
 
   }

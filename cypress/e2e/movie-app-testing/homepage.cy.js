@@ -14,8 +14,6 @@ describe('movie app test package', () => {
         cy.get('[data-cy=search-click]').click()
         cy.get('[data-cy=fav]').click()
         cy.get('[data-cy=movies]').click()
-        
-
-
+  
     })
 })

@@ -14,7 +14,13 @@ const MovieList: React.FC = () => {
         {movies.map((movie) => (
           <Grid item xs={12} sm={6} md={4} key={movie.imdbID}>
             <MovieCard
-              onClickHandler={() => movieStore.addFavorite(movie)}
+              onClickHandler={() => {
+                if (!movieStore.fav.some((m) => m.imdbID === movie.imdbID)) {
+                  movieStore.addFavorite(movie)
+                } else {
+                  alert("Movie Already In Favorite")
+                }
+              }}
               movie={movie}
               buttonLabel={movieStore.fav.some((m) => m.imdbID === movie.imdbID) ? "Added To Favorite" : "Add To Favorite"} />
           </Grid>
